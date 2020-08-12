@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+.gitlab-ci.yml
+^\.github$
+^codecov\.yml$
