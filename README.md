@@ -59,8 +59,8 @@ request body in `body=`.
 
 ## Wrappers
 
-With `fc_request()` all the api functionality can be easily covered and
-we provide some wrapper around endpoints.
+With `fc_request()` all the api functionality can be easily covered.
+Additionally, we provide some wrappers around endpoints.
 
 E.g. the wrapper for station information (see below) is defined as
 
@@ -71,7 +71,7 @@ fc_get_station
 #>   path <- file.path('/station', station_id)
 #>   fc_request(method = "GET", path = path, ...)
 #> }
-#> <bytecode: 0x56487f240268>
+#> <bytecode: 0x564e5ee4eaf0>
 #> <environment: namespace:rfieldclimate>
 ```
 

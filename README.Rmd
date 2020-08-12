@@ -66,7 +66,8 @@ URL parameters must be included in the `path=` arguments, the request body in `b
 
 ## Wrappers
 
-With `fc_request()` all the api functionality can be easily covered and we provide some wrapper around endpoints.
+With `fc_request()` all the api functionality can be easily covered. 
+Additionally, we provide some wrappers around endpoints.
 
 E.g. the wrapper for station information (see below) is defined as
 
