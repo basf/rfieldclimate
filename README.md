@@ -21,7 +21,7 @@ API](https://api.fieldclimate.com/v2/docs/)
 ## Installation
 
 ``` r
-remotes::install_github("basf/rfieldclimate@develop")
+remotes::install_github("basf/rfieldclimate")
 ```
 
 ## Examples
@@ -71,7 +71,7 @@ fc_get_station
 #>   path <- file.path('/station', station_id)
 #>   fc_request(method = "GET", path = path, ...)
 #> }
-#> <bytecode: 0x564e5ee4eaf0>
+#> <bytecode: 0x55b67f00f260>
 #> <environment: namespace:rfieldclimate>
 ```
 

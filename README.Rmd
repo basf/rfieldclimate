@@ -27,7 +27,7 @@ An R client for [Fieldclimate API](https://api.fieldclimate.com/v2/docs/)
 ## Installation
 
 ```r
-remotes::install_github("basf/rfieldclimate@develop")
+remotes::install_github("basf/rfieldclimate")
 ```
 
 ## Examples
