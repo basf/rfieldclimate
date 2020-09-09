@@ -32,6 +32,7 @@ fc_parse_data <- function(obj) {
 #' @importFrom dplyr mutate .data
 #' @param timepoint a timepoint
 parse_timepoint <- function(timepoint) {
+  timepoint <- timepoint[lengths(timepoint) != 0]
   as.data.frame(timepoint) %>%
     tidyr::pivot_longer(-.data$date, names_to = "variable") %>%
     dplyr::mutate(date = lubridate::as_datetime(.data$date),
