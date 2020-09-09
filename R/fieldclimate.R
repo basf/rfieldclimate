@@ -69,6 +69,11 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
   resp <- httr::VERB(verb = method, url = qurl, headers, body = body,
                      encode = "form")
 
+  if (httr::status_code(resp) == 204) {
+    warning("No data for specified time period.")
+    return(NULL)
+  }
+
   parsed <- resp %>%
     httr::content(as = "text", encoding = "UTF-8") %>%
     jsonlite::fromJSON(simplifyVector = FALSE)

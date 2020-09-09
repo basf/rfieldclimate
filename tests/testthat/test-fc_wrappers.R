@@ -38,3 +38,13 @@ test_that("fc_get_data_range() works", {
   expect_is(data, "list")
   expect_true(names(data)[[1]] == "sensors")
 })
+
+test_that("fc_get_data_range() handles 204s", {
+
+  data <- fc_get_data_range(
+    station_id = stations[[1]]$station_name,
+    data_group = "raw",
+    from = as.integer(as.POSIXct(stations[[1]]$db$min_date) - 100),
+    to =  as.integer(as.POSIXct(stations[[1]]$db$min_date) - 10))
+  expect_equal(data, NULL)
+})
