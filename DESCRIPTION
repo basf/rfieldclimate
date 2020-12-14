@@ -10,8 +10,8 @@ Authors@R:
       person(given = "BASF SE",
              role = "cph"))
 Maintainer: Eduard Szöcs <eduard.szoecs@basf.com>
-Description: An R client for the [fieldclimate
-    API](https://api.fieldclimate.com/v2/docs/).
+Description: An R client for the fieldclimate
+    API <https://api.fieldclimate.com/v2/docs/>.
 License: GPL-3
 Imports: 
     digest,
