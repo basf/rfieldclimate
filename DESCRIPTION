@@ -1,7 +1,7 @@
 Type: Package
 Package: rfieldclimate
 Title: An R Client for the Fieldclimate API
-Version: 0.1.0.9000
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Eduard",
              family = "Szöcs",
