@@ -4,3 +4,5 @@
 .gitlab-ci.yml
 ^\.github$
 ^codecov\.yml$
+.github
+LICENSE
