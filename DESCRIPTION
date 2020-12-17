@@ -1,6 +1,6 @@
 Type: Package
 Package: rfieldclimate
-Title: An R Client for the Fieldclimate API
+Title: Client for the 'FieldClimate' API
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Eduard",
@@ -10,8 +10,8 @@ Authors@R:
       person(given = "BASF SE",
              role = "cph"))
 Maintainer: Eduard Szöcs <eduard.szoecs@basf.com>
-Description: An R client for the fieldclimate
-    API <https://api.fieldclimate.com/v2/docs/>.
+Description: Provides functionality and parsers to interact with the 
+  'FieldClimate' API <https://api.fieldclimate.com/v2/docs/>.
 License: GPL-3
 Imports: 
     digest,

@@ -30,7 +30,8 @@ fc_request(
 
 \item{private_key}{private key. Read by default from env variable \code{FC_PRIVATE_KEY}}
 
-\item{body}{request body named list. Will be form encoded.}
+\item{body}{request body named list. Will be passed to \code{\link[httr:VERB]{httr::VERB()}} and
+form-encoded.}
 
 \item{verbose}{logical, should the request be printed?}
 }
