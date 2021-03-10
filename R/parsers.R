@@ -70,15 +70,16 @@ fc_parse_stations <- function(obj) {
 }
 
 #' parse a station
-#' @importFrom dplyr mutate
+#' @importFrom dplyr mutate .data
 #' @param station a stations
 parse_station <- function(station) {
   data.frame(station[c("station_name", "custom_name")]) %>%
     dplyr::mutate(
-           latitude = station$position$geo$coordinates[[2]],
-           longitude = station$position$geo$coordinates[[1]],
-           altitude = station$position$altitude,
-           start_date = station$db$min_date,
-           end_date = station$db$max_date
-           )
+      custom_name = ifelse(isFALSE(.data$custom_name), "", .data$custom_name),
+      latitude = station$position$geo$coordinates[[2]],
+      longitude = station$position$geo$coordinates[[1]],
+      altitude = station$position$altitude,
+      start_date = station$db$min_date,
+      end_date = station$db$max_date
+    )
 }
