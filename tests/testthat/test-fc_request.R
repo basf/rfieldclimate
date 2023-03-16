@@ -1,6 +1,7 @@
 context("fc_request")
 
 test_that("fc_request fails with invalid credentials", {
+  skip_on_cran()
   expect_error(fc_request("GET", "/user", public_key = "invalid", private_key = "invalid"),
     regexp = "fieldclimate API request failed")
 })
