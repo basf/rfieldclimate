@@ -6,3 +6,4 @@
 ^codecov\.yml$
 .github
 LICENSE
+.devcontainer
