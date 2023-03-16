@@ -66,8 +66,14 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
     private_key = private_key)
   if (verbose)
     message(method, " ", qurl)
-  resp <- httr::VERB(verb = method, url = qurl, headers, body = body,
-                     encode = "form")
+  resp <- try(httr::VERB(verb = method, url = qurl, headers, body = body,
+                     encode = "form"))
+
+  if (inherits(resp, "try-error")) {
+    warning("API-Error: ",  attr(resp, "condition")$message)
+    return(NULL)
+  }
+
 
   if (httr::status_code(resp) == 204) {
     warning("No data for specified time period.")
