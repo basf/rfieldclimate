@@ -6,13 +6,13 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rfieldclimate)](https://CRAN.R-project.org/package=rfieldclimate)
 [![R build
 status](https://github.com/basf/rfieldclimate/workflows/R-CMD-check/badge.svg)](https://github.com/basf/rfieldclimate/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/basf/rfieldclimate/branch/master/graph/badge.svg?token=3OZ8Y9VVWN)](https://codecov.io/gh/basf/rfieldclimate?branch=master)
+coverage](https://codecov.io/gh/basf/rfieldclimate/branch/master/graph/badge.svg?token=3OZ8Y9VVWN)](https://app.codecov.io/gh/basf/rfieldclimate?branch=master)
 <!-- badges: end -->
 
 An R client for [Fieldclimate
