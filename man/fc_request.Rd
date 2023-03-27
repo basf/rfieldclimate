@@ -40,6 +40,11 @@ form-encoded.}
 
 \item{timeout}{number of seconds to wait for a response before giving up.}
 }
+\value{
+an object of type "request" as returned by \code{\link[httr:add_headers]{httr::add_headers()}}.
+
+a list with the parsed response.
+}
 \description{
 authentication is done via hmac, see \code{\link[=fc_headers]{fc_headers()}}.
 }

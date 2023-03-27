@@ -31,9 +31,22 @@ fc_get_data_range(
 
 \item{data_group}{how to group data}
 
-\item{from}{time in unix timestamps since UTC, e.g. via as.integer(as.POSIXct(Sys.time()))}
+\item{from}{time in unix timestamps since UTC,
+e.g. via as.integer(as.POSIXct(Sys.time()))}
 
-\item{to}{time in unix timestamps since UTC as.integer(as.POSIXct(Sys.time()))}
+\item{to}{time in unix timestamps since UTC
+as.integer(as.POSIXct(Sys.time()))}
+}
+\value{
+a list with user information.
+
+a list with user stations information.
+
+a list with station details.
+
+a list with station metadata.
+
+a list with station data.
 }
 \description{
 Read user information
@@ -52,6 +65,7 @@ Getdata between specified time periods.
 }
 \dontrun{
 stations <- fc_get_user_stations()
+stations
 }
 \dontrun{
 stations <- fc_get_user_stations()

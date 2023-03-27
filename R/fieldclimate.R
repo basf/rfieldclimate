@@ -6,9 +6,7 @@
 #'  Read by default from env variable `FC_PUBLIC_KEY`
 #' @param private_key private key.
 #'  Read by default from env variable `FC_PRIVATE_KEY`
-#' @importFrom lubridate now
-#' @importFrom digest hmac
-#' @importFrom httr add_headers
+#' @return an object of type "request" as returned by [httr::add_headers()].
 #' @seealso https://api.fieldclimate.com/v2/docs/#authentication-hmac
 #' @export
 #' @examples
@@ -44,9 +42,8 @@ fc_headers <- function(method = c("GET", "PUT", "POST", "DELETE"),
 #'   form-encoded.
 #' @param verbose logical, should the request be printed?
 #' @param timeout number of seconds to wait for a response before giving up.
+#' @return a list with the parsed response.
 #' @description authentication is done via hmac, see [fc_headers()].
-#' @importFrom httr modify_url VERB content http_error status_code
-#' @importFrom jsonlite fromJSON
 #' @export
 #' @examples
 #' \dontrun{
@@ -104,6 +101,7 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
 
 #' Ping fieldclimate API
 #' @param timeout number of seconds to wait for a response before giving up.
+#' @return a logical whether the API is reachable or not.
 #' @export
 #' @examples
 #' \dontrun{

@@ -1,7 +1,7 @@
 #' parse data into long data.frame
 #' @rdname fc_parsers
 #' @param obj data object as returned by e.g. [fc_get_data_range()]
-#' @importFrom purrr map_df
+#' @return a data.frame with parsed data.
 #' @export
 #' @examples
 #' \dontrun{
@@ -27,8 +27,6 @@ fc_parse_data <- function(obj) {
 }
 
 #' parse a timepoint into a long data.frame
-#' @importFrom tidyr pivot_longer
-#' @importFrom lubridate as_datetime
 #' @importFrom dplyr mutate .data
 #' @param timepoint a timepoint
 parse_timepoint <- function(timepoint) {
@@ -46,18 +44,17 @@ parse_timepoint <- function(timepoint) {
 }
 
 #' parse a sensor
-#' @importFrom dplyr mutate_all
 #' @param sensor a sensor
 parse_sensor <- function(sensor) {
   data.frame(sensor[c("name", "unit", "ch", "mac", "serial", "code")]) %>%
-    dplyr::mutate_all(as.character)
+    dplyr::mutate(dplyr::across(.fns = as.character))
 }
 
 
 #' parse stations into data.frame
 #' @rdname fc_parsers
 #' @param obj stations object as returned by e.g. [fc_get_user_stations()]
-#' @importFrom purrr map_df
+#' @return a data.frame with parsed station data.
 #' @export
 #' @examples
 #' \dontrun{

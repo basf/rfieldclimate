@@ -12,6 +12,11 @@ fc_parse_stations(obj)
 \arguments{
 \item{obj}{stations object as returned by e.g. \code{\link[=fc_get_user_stations]{fc_get_user_stations()}}}
 }
+\value{
+a data.frame with parsed data.
+
+a data.frame with parsed station data.
+}
 \description{
 parse data into long data.frame
 

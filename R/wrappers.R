@@ -1,6 +1,7 @@
 #' Read user information
 #' @rdname fc_wrappers
 #' @param ... additional arguments passed to [fc_request()]
+#' @return a list with user information.
 #' @export
 #' @examples
 #' \dontrun{
@@ -13,10 +14,12 @@ fc_get_user <- function(...) {
 #' List of user devices.
 #' @rdname fc_wrappers
 #' @param ... additional arguments passed to [fc_request()]
+#' @return a list with user stations information.
 #' @export
 #' @examples
 #' \dontrun{
 #' stations <- fc_get_user_stations()
+#' stations
 #' }
 fc_get_user_stations <- function(...) {
   fc_request(method = "GET", path = "/user/stations", ...)
@@ -26,6 +29,7 @@ fc_get_user_stations <- function(...) {
 #' @rdname fc_wrappers
 #' @param station_id station id to query
 #' @param ... additional arguments passed to [fc_request()]
+#' @return a list with station details.
 #' @export
 #' @examples
 #' \dontrun{
@@ -42,6 +46,7 @@ fc_get_station <- function(station_id = NULL, ...) {
 #' @rdname fc_wrappers
 #' @param station_id station id to query
 #' @param ... additional arguments passed to [fc_request()]
+#' @return a list with station metadata.
 #' @export
 #' @examples
 #' \dontrun{
@@ -58,9 +63,12 @@ fc_get_data <- function(station_id = NULL, ...) {
 #' @rdname fc_wrappers
 #' @param station_id station id to query
 #' @param data_group how to group data
-#' @param from time in unix timestamps since UTC, e.g. via as.integer(as.POSIXct(Sys.time()))
-#' @param to time in unix timestamps since UTC as.integer(as.POSIXct(Sys.time()))
+#' @param from time in unix timestamps since UTC, 
+#'   e.g. via as.integer(as.POSIXct(Sys.time()))
+#' @param to time in unix timestamps since UTC 
+#'   as.integer(as.POSIXct(Sys.time()))
 #' @param ... additional arguments passed to [fc_request()]
+#' @return a list with station data.
 #' @export
 #' @examples
 #' \dontrun{

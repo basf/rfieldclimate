@@ -6,6 +6,9 @@
 \usage{
 lhs \%>\% rhs
 }
+\value{
+No return value, called for importing the pipe.
+}
 \description{
 See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 }

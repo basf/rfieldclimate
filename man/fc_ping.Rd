@@ -9,6 +9,9 @@ fc_ping(timeout = 2)
 \arguments{
 \item{timeout}{number of seconds to wait for a response before giving up.}
 }
+\value{
+a logical whether the API is reachable or not.
+}
 \description{
 Ping fieldclimate API
 }
