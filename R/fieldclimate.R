@@ -2,8 +2,10 @@
 #' @rdname fc_request
 #' @param method request method
 #' @param path request path (required)
-#' @param public_key public key. Read by default from env variable `FC_PUBLIC_KEY`
-#' @param private_key private key. Read by default from env variable `FC_PRIVATE_KEY`
+#' @param public_key public key.
+#'  Read by default from env variable `FC_PUBLIC_KEY`
+#' @param private_key private key.
+#'  Read by default from env variable `FC_PRIVATE_KEY`
 #' @importFrom lubridate now
 #' @importFrom digest hmac
 #' @importFrom httr add_headers
@@ -20,15 +22,15 @@ fc_headers <- function(method = c("GET", "PUT", "POST", "DELETE"),
   stopifnot(!is.null(private_key))
 
   if (nchar(public_key) == 0)
-    stop("public_key is empty. Is the environment variable 'FC_PUBLIC_KEY' set?")
+    stop("public_key missing. Is the environment variable 'FC_PUBLIC_KEY' set?")
 
   if (nchar(private_key) == 0)
-    stop("private_key is empty. Is the environment variable 'FC_PUBLIC_KEY' set?")
+    stop("private_key missing.Is the environment variable 'FC_PUBLIC_KEY' set?")
 
   stopifnot(!is.null(path))
   method <- match.arg(method)
 
-  date <- format(lubridate::now("GMT"), format = '%a, %d %b %Y %H:%M:%S GMT')
+  date <- format(lubridate::now("GMT"), format = "%a, %d %b %Y %H:%M:%S GMT")
   msg <- paste0(method, path, date, public_key)
   signature <- digest::hmac(key = private_key, object = msg, algo = "sha256")
   auth <- paste0("hmac ", public_key, ":", signature)
@@ -97,4 +99,3 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
 
   return(parsed)
 }
-
