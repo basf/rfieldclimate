@@ -6,3 +6,4 @@
 rfieldclimate_*.tar.gz
 .vscode
 .env
+*.Rcheck

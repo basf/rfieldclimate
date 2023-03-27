@@ -10,7 +10,7 @@ Authors@R:
       person(given = "BASF SE",
              role = "cph"))
 Maintainer: Eduard Szöcs <eduard.szoecs@basf.com>
-Description: Provides functionality and parsers to interact with the 
+Description: Provides functionality to interact with the 
   'FieldClimate' API <https://api.fieldclimate.com/v2/docs/>.
 License: GPL-3
 Imports: 
