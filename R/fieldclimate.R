@@ -43,6 +43,7 @@ fc_headers <- function(method = c("GET", "PUT", "POST", "DELETE"),
 #' @param body request body named list. Will be passed to [httr::VERB()] and
 #'   form-encoded.
 #' @param verbose logical, should the request be printed?
+#' @param timeout number of seconds to wait for a response before giving up.
 #' @description authentication is done via hmac, see [fc_headers()].
 #' @importFrom httr modify_url VERB content http_error status_code
 #' @importFrom jsonlite fromJSON
@@ -56,7 +57,8 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
     body = NULL,
     public_key = Sys.getenv("FC_PUBLIC_KEY"),
     private_key = Sys.getenv("FC_PRIVATE_KEY"),
-    verbose = FALSE) {
+    verbose = FALSE,
+    timeout = 10) {
 
   stopifnot(!is.null(path))
   method <- match.arg(method)
@@ -69,7 +71,7 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
   if (verbose)
     message(method, " ", qurl)
   resp <- try(httr::VERB(verb = method, url = qurl, headers, body = body,
-                     encode = "form"))
+                     encode = "form", httr::timeout(timeout)))
 
   if (inherits(resp, "try-error")) {
     warning("API-Error: ",  attr(resp, "condition")$message)
@@ -98,4 +100,23 @@ fc_request <- function(method = c("GET", "PUT", "POST", "DELETE"),
   }
 
   return(parsed)
+}
+
+#' Ping fieldclimate API
+#' @param timeout number of seconds to wait for a response before giving up.
+#' @export
+#' @examples
+#' \dontrun{
+#' fc_ping()
+#' }
+fc_ping <- function(timeout = 2) {
+  api <- "https://api.fieldclimate.com/v2"
+  resp <- try(httr::GET(url = api, httr::timeout(timeout)))
+
+  if (inherits(resp, "try-error")) {
+    message("API-Error: ",  attr(resp, "condition")$message)
+    return(FALSE)
+  }
+
+  return(TRUE)
 }

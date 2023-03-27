@@ -5,3 +5,4 @@
 .devcontainer
 rfieldclimate_*.tar.gz
 .vscode
+.env

@@ -18,7 +18,8 @@ fc_request(
   body = NULL,
   public_key = Sys.getenv("FC_PUBLIC_KEY"),
   private_key = Sys.getenv("FC_PRIVATE_KEY"),
-  verbose = FALSE
+  verbose = FALSE,
+  timeout = 10
 )
 }
 \arguments{
@@ -26,14 +27,18 @@ fc_request(
 
 \item{path}{request path (required)}
 
-\item{public_key}{public key. Read by default from env variable \code{FC_PUBLIC_KEY}}
+\item{public_key}{public key.
+Read by default from env variable \code{FC_PUBLIC_KEY}}
 
-\item{private_key}{private key. Read by default from env variable \code{FC_PRIVATE_KEY}}
+\item{private_key}{private key.
+Read by default from env variable \code{FC_PRIVATE_KEY}}
 
 \item{body}{request body named list. Will be passed to \code{\link[httr:VERB]{httr::VERB()}} and
 form-encoded.}
 
 \item{verbose}{logical, should the request be printed?}
+
+\item{timeout}{number of seconds to wait for a response before giving up.}
 }
 \description{
 authentication is done via hmac, see \code{\link[=fc_headers]{fc_headers()}}.

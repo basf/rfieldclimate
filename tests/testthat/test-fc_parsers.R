@@ -1,7 +1,8 @@
 context("parsers")
 
 testthat::skip_on_cran()
-skip_if(Sys.getenv("FC_PRIVATE_KEY") == "")
+testthat::skip_if(Sys.getenv("FC_PRIVATE_KEY") == "")
+testthat::skip_if(!fc_ping())
 
 stations <- fc_get_user_stations()
 data <- fc_get_data_range(

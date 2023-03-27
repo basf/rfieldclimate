@@ -7,3 +7,5 @@
 .github
 LICENSE
 .devcontainer
+.env
+.vscode
